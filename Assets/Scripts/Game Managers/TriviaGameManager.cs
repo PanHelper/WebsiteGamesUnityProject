@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-/* using UnityEngine.InputSystem; */
+using UnityEngine.InputSystem;
 
 public class TriviaGameManager : MonoBehaviour
 {
@@ -30,9 +30,16 @@ public class TriviaGameManager : MonoBehaviour
     // Image Variables
 
     // Script Variables
+    private InputActions input;
 
     #endregion
 
+    // Called when the game is loaded
+    private void Awake()
+    {
+        input = new InputActions();
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +83,31 @@ public class TriviaGameManager : MonoBehaviour
         gameActive = false;
         CloseMenus();
         scoreScreen.SetActive(true);
+    }
+
+    #endregion
+
+    #region Input
+    
+    // Called when the script is enabled
+    private void OnEnable()
+    {
+        input.Enable();
+        input.UI.CloseStart.performed += OnStartPerformed;
+    }
+
+    // Called when the script is disabled
+    private void OnDisable()
+    {
+        input.Disable();
+        input.UI.CloseStart.performed -= OnStartPerformed;
+    }
+
+    // Called when any of the binds associated with CloseStart in input are used
+    private void OnStartPerformed(InputAction.CallbackContext context)
+    {
+        // only opens the level selection menu if the start menu is active
+        if(startScreen.activeSelf) { OpenQuestionScreen(); }
     }
 
     #endregion
