@@ -12,12 +12,17 @@ public class TriviaGameManager : MonoBehaviour
     #region Variables
     
     // GameObject Variables
-    [SerializeField] private GameObject startScreen, questionScreen, scoreScreen;
+    [Header("Screens")]
+    [SerializeField] private GameObject startScreen;
+    [SerializeField] private GameObject questionScreen, scoreScreen;
 
     // TextMeshProUGUI Variables
+    [Header("Text")]
+    [SerializeField] private TextMeshProUGUI qText;
 
     // Boolean Variables
     public static bool gameActive, gameStarted;
+    [Space(20)]
     [SerializeField] private List<bool> answers;
 
     // String Variables
@@ -29,7 +34,12 @@ public class TriviaGameManager : MonoBehaviour
     // Script Variables
     private InputActions input;
 
-    #endregion
+    // Float Variables
+    [Header("Animation Length")]
+    [SerializeField] private float correctSecs;
+    [SerializeField] private float wrongSecs;
+
+    #endregion Variables
 
     // Called when the game is loaded
     private void Awake()
@@ -46,6 +56,7 @@ public class TriviaGameManager : MonoBehaviour
         questsDone = 0;
         score = 0;
 
+        NextQuestion();
         OpenStart();
     }
 
@@ -122,19 +133,45 @@ public class TriviaGameManager : MonoBehaviour
         if(ans == answers[currQuest])
         {
             score++;
-            // show the player they were right
+            StartCoroutine(Correct());
         }
-        else
-        {
-            // show the player they were wrong
-        }
+        else { StartCoroutine(Wrong()); }
 
         questions.RemoveAt(currQuest);
         answers.RemoveAt(currQuest);
         questsDone++;
+    }
 
+    // Tells the player they got the question correct
+    private IEnumerator Correct()
+    {
+        // Animation for checkmark being drawn
+
+        yield return new WaitForSeconds(correctSecs);
+
+        NextQuestion();
+    }
+
+    // Tells the player they got the question wrong
+    private IEnumerator Wrong()
+    {
+        // Animation for X being drawn
+
+        yield return new WaitForSeconds(wrongSecs);
+
+        NextQuestion();
+    }
+
+    // Chooses the next question and loads the question screen
+    public void NextQuestion()
+    {
         // Either moves to the next question or ends the game
-        if(questsDone < 5) {}
+        if(questsDone < 5)
+        {
+            currQuest = Random.Range(0, questions.Count);
+            qText.text = questions[currQuest];
+            OpenQuestionScreen();
+        }
         else 
         {
             // update score screen
