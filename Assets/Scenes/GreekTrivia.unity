@@ -234,6 +234,8 @@ MonoBehaviour:
   questionScreen: {fileID: 1528208207}
   scoreScreen: {fileID: 997811339}
   qText: {fileID: 876019312}
+  scoreText: {fileID: 1341775935}
+  feedbackText: {fileID: 475365129}
   answers: 000000000000
   questions:
   - 0
@@ -242,6 +244,13 @@ MonoBehaviour:
   - 3
   - 4
   - 5
+  feedback:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   correctSecs: 0
   wrongSecs: 0
 --- !u!1 &215308116

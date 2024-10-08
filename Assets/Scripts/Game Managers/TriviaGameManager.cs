@@ -19,6 +19,8 @@ public class TriviaGameManager : MonoBehaviour
     // TextMeshProUGUI Variables
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI qText;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI feedbackText;
 
     // Boolean Variables
     public static bool gameActive, gameStarted;
@@ -27,6 +29,7 @@ public class TriviaGameManager : MonoBehaviour
 
     // String Variables
     [SerializeField] private List<string> questions;
+    [SerializeField] private List<string> feedback;
 
     // Integer Variables
     private int currQuest, questsDone, score;
@@ -92,6 +95,8 @@ public class TriviaGameManager : MonoBehaviour
     // Opens the Score Screen
     public void OpenScoreScreen()
     {
+        scoreText.text = (score + "/5");
+        feedbackText.text = feedback[score];
         gameActive = false;
         CloseMenus();
         scoreScreen.SetActive(true);
