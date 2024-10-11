@@ -63,6 +63,10 @@ public class TriviaGameManager : MonoBehaviour
         OpenStart();
     }
 
+    // Restarts the game from the beginning
+    public void Restart()
+    { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
+
     #region Menu Operations
     
     // Deactivates every menu
