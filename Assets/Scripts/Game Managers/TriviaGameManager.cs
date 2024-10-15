@@ -42,6 +42,10 @@ public class TriviaGameManager : MonoBehaviour
     [SerializeField] private float correctSecs;
     [SerializeField] private float wrongSecs;
 
+    // Animator Variables
+    [Header("(In)Correct Animator")]
+    [SerializeField] private Animator anim;
+
     #endregion Variables
 
     // Called when the game is loaded
@@ -142,31 +146,23 @@ public class TriviaGameManager : MonoBehaviour
         if(ans == answers[currQuest])
         {
             score++;
-            StartCoroutine(Correct());
+            StartCoroutine(Drawing(1, correctSecs));
         }
-        else { StartCoroutine(Wrong()); }
+        else { StartCoroutine(Drawing(-1, wrongSecs)); }
 
         questions.RemoveAt(currQuest);
         answers.RemoveAt(currQuest);
         questsDone++;
     }
 
-    // Tells the player they got the question correct
-    private IEnumerator Correct()
+    // Tells the player whether they got the question correct
+    private IEnumerator Drawing(int state, float waitTime)
     {
-        // Animation for checkmark being drawn
+        anim.SetInteger("State", state);
 
-        yield return new WaitForSeconds(correctSecs);
-
-        NextQuestion();
-    }
-
-    // Tells the player they got the question wrong
-    private IEnumerator Wrong()
-    {
-        // Animation for X being drawn
-
-        yield return new WaitForSeconds(wrongSecs);
+        yield return new WaitForSeconds(waitTime);
+        
+        anim.SetInteger("State", 0);
 
         NextQuestion();
     }
