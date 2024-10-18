@@ -177,12 +177,7 @@ public class TriviaGameManager : MonoBehaviour
             qText.text = questions[currQuest];
             OpenQuestionScreen();
         }
-        else 
-        {
-            // update score screen
-
-            OpenScoreScreen();
-        }
+        else { OpenScoreScreen(); }
     }
 
     #endregion
