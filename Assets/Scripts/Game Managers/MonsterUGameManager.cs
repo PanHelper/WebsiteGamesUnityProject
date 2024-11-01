@@ -25,12 +25,16 @@ public class MonsterUGameManager : MonoBehaviour
     public static bool gameActive, gameStarted;
 
     // String Variables
-    [Space(20)]
     [SerializeField] private List<string> questions;
+    [SerializeField] private List<List<string>> answers;
 
     // Integer Variables
-    [SerializeField] private List<int> answers;
     private int nextQuest;
+
+    [Header("Distributions")]
+    [SerializeField] private int eek;
+    [SerializeField] private int hss;
+    [SerializeField] private int pnk;
 
     // Script Variables
     private InputActions input;
@@ -50,6 +54,10 @@ public class MonsterUGameManager : MonoBehaviour
         gameStarted = false;
 
         nextQuest = 0;
+
+        eek = 0;
+        hss = 0;
+        pnk = 0;
 
         NextQuestion();
         OpenStart();
@@ -128,7 +136,7 @@ public class MonsterUGameManager : MonoBehaviour
     // Determines whether the player got the question correct, and updates the score
     public void Answer(int ans)
     {
-        answers[ans] += 1;
+        /* answers[ans] += 1; */
         NextQuestion();
     }
 

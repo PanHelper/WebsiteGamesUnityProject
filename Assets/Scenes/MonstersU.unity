@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 351320981}
   - component: {fileID: 351320980}
   m_Layer: 5
-  m_Name: Score Screen
+  m_Name: Result Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -678,13 +678,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5b4485eb5af364b9ab1465dbd11992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScreen: {fileID: 0}
-  questionScreen: {fileID: 0}
-  resultScreen: {fileID: 0}
-  qText: {fileID: 0}
+  startScreen: {fileID: 427484717}
+  questionScreen: {fileID: 1267250928}
+  resultScreen: {fileID: 351320978}
+  qText: {fileID: 179596431}
   answersText: []
   questions: []
-  answers: 
+  eek: 0
+  hss: 0
+  pnk: 0
 --- !u!1 &465430814
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +961,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.84705883, g: 0.89411765, b: 0.59607846, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
