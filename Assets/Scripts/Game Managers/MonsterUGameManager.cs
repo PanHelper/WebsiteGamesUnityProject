@@ -15,6 +15,10 @@ public class MonsterUGameManager : MonoBehaviour
     [Header("Screens")]
     [SerializeField] private GameObject startScreen;
     [SerializeField] private GameObject questionScreen, resultScreen;
+    [Header("Answer Buttons")] [SerializeField] private GameObject[] answerButtons;
+
+    // Vector3 Variables
+    [SerializeField] private Vector3[] answerLocations;
 
     // TextMeshProUGUI Variables
     [Header("Text")]
