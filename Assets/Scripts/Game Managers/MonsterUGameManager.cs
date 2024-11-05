@@ -133,10 +133,18 @@ public class MonsterUGameManager : MonoBehaviour
 
     #region Questions
 
-    // Determines whether the player got the question correct, and updates the score
+    // Determines which category to increment in the distribution
     public void Answer(int ans)
     {
-        /* answers[ans] += 1; */
+        // the answer best aligns with EEK
+        if(ans == 0) { eek++; }
+
+        // the answer best aligns with HSS
+        else if(ans == 1) { hss++; }
+
+        // the answer best aligns with PNK
+        else { pnk++; }
+
         NextQuestion();
     }
 
