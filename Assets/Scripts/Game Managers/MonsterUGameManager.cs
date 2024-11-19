@@ -15,10 +15,11 @@ public class MonsterUGameManager : MonoBehaviour
     [Header("Screens")]
     [SerializeField] private GameObject startScreen;
     [SerializeField] private GameObject questionScreen, resultScreen;
+
     [Header("Answer Buttons")] [SerializeField] private GameObject[] answerButtons;
 
     // Vector3 Variables
-    [SerializeField] private Vector3[] answerLocations;
+    [SerializeField] private List<Vector3> answerLocations;
 
     // TextMeshProUGUI Variables
     [Header("Text")]
@@ -158,6 +159,15 @@ public class MonsterUGameManager : MonoBehaviour
         // Either moves to the next question or ends the game
         if(nextQuest < questions.Count)
         {
+            // Randomizes answer locations
+            List<Vector3> temp = new List<Vector3>(answerLocations);
+            foreach (GameObject button in answerButtons)
+            {
+                int i = Random.Range(0, temp.Count);
+                button.transform.localPosition = temp[i];
+                temp.RemoveAt(i);
+            }
+            
             qText.text = questions[nextQuest];
             // Update answer options
             OpenQuestionScreen();
