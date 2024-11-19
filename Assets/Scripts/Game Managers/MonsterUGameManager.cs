@@ -31,7 +31,7 @@ public class MonsterUGameManager : MonoBehaviour
 
     // String Variables
     [SerializeField] private List<string> questions;
-    [SerializeField] private List<List<string>> answers;
+    [SerializeField] private string[,] answers;
 
     // Integer Variables
     private int nextQuest;
@@ -64,6 +64,7 @@ public class MonsterUGameManager : MonoBehaviour
         hss = 0;
         pnk = 0;
 
+        InitializeAnswers();
         NextQuestion();
         OpenStart();
     }
@@ -138,6 +139,32 @@ public class MonsterUGameManager : MonoBehaviour
 
     #region Questions
 
+    // Sets up the text for the answer choices to each question
+    private void InitializeAnswers()
+    {
+        answers = new string[5, 3];
+        
+        answers[0, 0] = "00";
+        answers[0, 1] = "01";
+        answers[0, 2] = "02";
+
+        answers[1, 0] = "10";
+        answers[1, 1] = "11";
+        answers[1, 2] = "12";
+        
+        answers[2, 0] = "20";
+        answers[2, 1] = "21";
+        answers[2, 2] = "22";
+        
+        answers[3, 0] = "30";
+        answers[3, 1] = "31";
+        answers[3, 2] = "32";
+        
+        answers[4, 0] = "40";
+        answers[4, 1] = "41";
+        answers[4, 2] = "42";
+    }
+
     // Determines which category to increment in the distribution
     public void Answer(int ans)
     {
@@ -169,7 +196,13 @@ public class MonsterUGameManager : MonoBehaviour
             }
             
             qText.text = questions[nextQuest];
+
             // Update answer options
+            for(int i = 0; i < answersText.Length; i++)
+            {
+                answersText[i].text = answers[nextQuest, i];
+            }
+
             OpenQuestionScreen();
             nextQuest++;
         }
