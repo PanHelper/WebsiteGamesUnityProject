@@ -15,7 +15,6 @@ public class MonsterUGameManager : MonoBehaviour
     [Header("Screens")]
     [SerializeField] private GameObject startScreen;
     [SerializeField] private GameObject questionScreen, resultScreen;
-
     [Header("Answer Buttons")] [SerializeField] private GameObject[] answerButtons;
 
     // Vector3 Variables
@@ -25,12 +24,16 @@ public class MonsterUGameManager : MonoBehaviour
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI qText;
     [SerializeField] private TextMeshProUGUI[] answersText;
+    [Header("Results")] [SerializeField] private TextMeshProUGUI resultText;
+
+    // SpriteRenderer Variables
+    [SerializeField] private SpriteRenderer resultSprite;
 
     // Boolean Variables
     public static bool gameActive, gameStarted;
 
     // String Variables
-    [SerializeField] private List<string> questions;
+    [Header("Questions")] [SerializeField] private List<string> questions;
     [SerializeField] private string[,] answers;
 
     // Integer Variables
@@ -206,7 +209,28 @@ public class MonsterUGameManager : MonoBehaviour
             OpenQuestionScreen();
             nextQuest++;
         }
-        else { OpenResultScreen(); }
+        else { UpdateResults(); }
+    }
+
+    // Updates the Results Screen
+    private void UpdateResults()
+    {
+        // determines the highest score
+        int max = Mathf.Max(eek, Mathf.Max(hss, pnk));
+        if(max == eek)
+        {
+            resultText.text = "You've been sorted into EEK!";
+        }
+        else if(max == hss)
+        {
+            resultText.text = "You've been sorted into HSS!";
+        }
+        else
+        {
+            resultText.text = "You've been sorted into PNK!";
+        }
+        
+        OpenResultScreen();
     }
 
     #endregion
