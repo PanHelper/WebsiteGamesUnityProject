@@ -118,7 +118,7 @@ public class MonsterUGameManager : MonoBehaviour
         resultScreen.SetActive(true);
     }
 
-    #endregion
+    #endregion Menu Operations
 
     #region Input
     
@@ -143,7 +143,7 @@ public class MonsterUGameManager : MonoBehaviour
         if(startScreen.activeSelf) { OpenQuestionScreen(); }
     }
 
-    #endregion
+    #endregion Input
 
     #region Questions
 
@@ -241,5 +241,5 @@ public class MonsterUGameManager : MonoBehaviour
         OpenResultScreen();
     }
 
-    #endregion
+    #endregion Questions
 }
