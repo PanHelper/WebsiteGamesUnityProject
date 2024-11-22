@@ -26,8 +26,13 @@ public class MonsterUGameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] answersText;
     [Header("Results")] [SerializeField] private TextMeshProUGUI resultText;
 
-    // SpriteRenderer Variables
-    [SerializeField] private SpriteRenderer resultSprite;
+    // Image Variables
+    [SerializeField] private Image resultSprite;
+
+    // Sprite Variables
+    [SerializeField] private Sprite eekSprite;
+    [SerializeField] private Sprite hssSprite;
+    [SerializeField] private Sprite pnkSprite;
 
     // Boolean Variables
     public static bool gameActive, gameStarted;
@@ -220,14 +225,17 @@ public class MonsterUGameManager : MonoBehaviour
         if(max == eek)
         {
             resultText.text = "You've been sorted into EEK!";
+            resultSprite.sprite = eekSprite;
         }
         else if(max == hss)
         {
             resultText.text = "You've been sorted into HSS!";
+            resultSprite.sprite = hssSprite;
         }
         else
         {
             resultText.text = "You've been sorted into PNK!";
+            resultSprite.sprite = pnkSprite;
         }
         
         OpenResultScreen();
