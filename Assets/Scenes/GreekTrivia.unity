@@ -236,14 +236,20 @@ MonoBehaviour:
   qText: {fileID: 876019312}
   scoreText: {fileID: 1341775935}
   feedbackText: {fileID: 475365129}
-  answers: 000000000000
+  answers: 01010001000001000001
   questions:
-  - 0
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
+  - The Panhellenic community at RPI only includes sororities.
+  - RPI has a formal recruitment process for joining Panhellenic sororities
+  - All members of RPI's Panhellenic community are required to live in sorority housing.
+  - RPI's Panhellenic Association promotes leadership, academic excellence, and community
+    service among its members.
+  - RPI's Panhellenic Council governs fraternities and sororities.
+  - Exclusion is a value promoted by RPI's Panhellenic community.
+  - 3 Panhellenic sororities are currently part of the RPI Panhellenic community.
+  - The primary role of the Panhellenic Council at RPI is to organize sports tournaments.
+  - The official term for the process where prospective members join Panhellenic
+    sororities is Orientation.
+  - Academic support  is a benefit of joining the Panhellenic community at RPI.
   feedback:
   - 
   - 
