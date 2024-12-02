@@ -251,12 +251,13 @@ MonoBehaviour:
     sororities is Orientation.
   - Academic support  is a benefit of joining the Panhellenic community at RPI.
   feedback:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - You didn't get any of them? You must have been <i>trying</i> to get them wrong!
+  - Don't believe everything you see in movies! Panhellenic life at RPI is meant
+    to <i>benefit</i> you!
+  - Not good, but not bad either!
+  - You got more than half! Nice!
+  - Is it safe to assume you just misclicked on one?
+  - You got every question correct! Awesome job!
   correctSecs: 1.083
   wrongSecs: 2.25
   anim: {fileID: 1849844919}
