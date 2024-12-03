@@ -150,27 +150,41 @@ public class MonsterUGameManager : MonoBehaviour
     // Sets up the text for the answer choices to each question
     private void InitializeAnswers()
     {
-        answers = new string[5, 3];
-        
-        answers[0, 0] = "00";
-        answers[0, 1] = "01";
-        answers[0, 2] = "02";
+        answers = new string[7, 3];
 
-        answers[1, 0] = "10";
-        answers[1, 1] = "11";
-        answers[1, 2] = "12";
+        /* 
+            answers[#, 0] --> eek
+            answers[#, 1] --> hss
+            answers[#, 2] --> pnk
+        */
         
-        answers[2, 0] = "20";
-        answers[2, 1] = "21";
-        answers[2, 2] = "22";
+        answers[0, 0] = "Curling up with a good book or brainstorming ideas.";
+        answers[0, 1] = "Strategizing my next big plan or pushing myself to improve.";
+        answers[0, 2] = "Practicing my moves or perfecting my look.";
+
+        answers[1, 0] = "Staying behind the scenes to brainstorm creative solutions.";
+        answers[1, 1] = "Organizing everyone to ensure we win at all costs.";
+        answers[1, 2] = "Leading the charge and making sure we all look amazing doing it.";
         
-        answers[3, 0] = "30";
-        answers[3, 1] = "31";
-        answers[3, 2] = "32";
+        answers[2, 0] = "Be subtle and catch them off guard with a clever setup.";
+        answers[2, 1] = "Go for maximum intimidation right away.";
+        answers[2, 2] = "Charm them into letting their guard down—then pounce!";
         
-        answers[4, 0] = "40";
-        answers[4, 1] = "41";
-        answers[4, 2] = "42";
+        answers[3, 0] = "Focus on outsmarting the competition.";
+        answers[3, 1] = "Crush the competition—no room for second place!";
+        answers[3, 2] = "Play fair, but never forget to dazzle.";
+        
+        answers[4, 0] = "Functional, comfy, and maybe a little quirky.";
+        answers[4, 1] = "Sleek, bold, and totally intimidating.";
+        answers[4, 2] = "Trendy, flashy, and always coordinated with my crew.";
+        
+        answers[5, 0] = "Being thoughtful and welcoming to everyone.";
+        answers[5, 1] = "Focusing on strength, loyalty, and victory.";
+        answers[5, 2] = "Looking fabulous and sticking together.";
+        
+        answers[6, 0] = "\"Brains over brawn, every time.\"";
+        answers[6, 1] = "\"Dominate or disappear.\"";
+        answers[6, 2] = "\"Look good, scare better.\"";
     }
 
     // Determines which category to increment in the distribution
