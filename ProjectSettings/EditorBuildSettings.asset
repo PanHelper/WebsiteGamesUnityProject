@@ -5,8 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GreekTrivia.unity
     guid: eecbb7262ac9ce949aa915488a9fea86
+  - enabled: 1
+    path: Assets/Scenes/MonstersU.unity
+    guid: 8a9d266fef617044da5c8cdc21a3a6f8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: b8fab9b2d2f68f0438e5d5d539de5e1b, type: 2}
